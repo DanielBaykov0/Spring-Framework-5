@@ -1,9 +1,6 @@
 package baykov.daniel.springdi;
 
-import baykov.daniel.springdi.controllers.ConstructorInjectedController;
-import baykov.daniel.springdi.controllers.MyController;
-import baykov.daniel.springdi.controllers.PropertyInjectedController;
-import baykov.daniel.springdi.controllers.SetterInjectedController;
+import baykov.daniel.springdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,9 @@ public class SpringDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(SpringDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) context.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) context.getBean("myController");
 
