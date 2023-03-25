@@ -21,21 +21,15 @@ public class SpringDiApplication {
 		System.out.println(greeting);
 
 		System.out.println("------------ Property");
-
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) context.getBean("propertyInjectedController");
-
 		System.out.println(propertyInjectedController.getGreeting());
 
 		System.out.println("------------ Setter");
-
 		SetterInjectedController setterInjectedController = (SetterInjectedController) context.getBean("setterInjectedController");
-
 		System.out.println(setterInjectedController.getGreeting());
 
 		System.out.println("------------ Constructor");
-
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) context.getBean("constructorInjectedController");
-
 		System.out.println(constructorInjectedController.getGreeting());
 	}
 

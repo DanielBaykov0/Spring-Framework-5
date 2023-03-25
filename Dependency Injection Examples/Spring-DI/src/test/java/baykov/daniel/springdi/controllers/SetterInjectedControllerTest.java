@@ -1,10 +1,8 @@
 package baykov.daniel.springdi.controllers;
 
-import baykov.daniel.springdi.services.GreetingServiceImpl;
+import baykov.daniel.springdi.services.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SetterInjectedControllerTest {
 
@@ -14,7 +12,7 @@ class SetterInjectedControllerTest {
     void setUp() {
 
         controller = new SetterInjectedController();
-        controller.setGreetingService(new GreetingServiceImpl());
+        controller.setGreetingService(new ConstructorGreetingService());
     }
 
     @Test
