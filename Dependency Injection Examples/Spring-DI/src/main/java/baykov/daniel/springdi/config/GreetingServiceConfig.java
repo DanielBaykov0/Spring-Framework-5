@@ -1,5 +1,7 @@
 package baykov.daniel.springdi.config;
 
+import baykov.daniel.pets.PetService;
+import baykov.daniel.pets.PetServiceFactory;
 import baykov.daniel.springdi.repositories.EnglishGreetingRepository;
 import baykov.daniel.springdi.repositories.EnglishGreetingRepositoryImpl;
 import baykov.daniel.springdi.services.*;
@@ -10,6 +12,23 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    PetServiceFactory petServiceFactory() {
+        return new PetServiceFactory();
+    }
+
+    @Profile({"dog", "default"})
+    @Bean
+    PetService dogPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("dog");
+    }
+
+    @Profile("cat")
+    @Bean
+    PetService catPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("cat");
+    }
 
     @Bean
     EnglishGreetingRepository englishGreetingRepository() {
