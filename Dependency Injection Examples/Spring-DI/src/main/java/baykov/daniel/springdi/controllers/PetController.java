@@ -1,6 +1,6 @@
 package baykov.daniel.springdi.controllers;
 
-import baykov.daniel.springdi.services.PetService;
+import baykov.daniel.pets.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller

@@ -1,4 +1,4 @@
-package baykov.daniel.springdi.services;
+package baykov.daniel.pets;
 
 public interface PetService {
 

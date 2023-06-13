@@ -1,14 +1,14 @@
-package baykov.daniel.springdi.services;
+package baykov.daniel.pets;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile("cat")
-public class CatPetService implements PetService {
+@Profile({"dog", "default"})
+public class DogPetService implements PetService {
 
     @Override
     public String getPetType() {
-        return "Cats are the Best!";
+        return "Dogs are the Best!";
     }
 }
