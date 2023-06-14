@@ -6,18 +6,20 @@ import baykov.daniel.springdi.datasource.FakeDataSource;
 import baykov.daniel.springdi.repositories.EnglishGreetingRepository;
 import baykov.daniel.springdi.repositories.EnglishGreetingRepositoryImpl;
 import baykov.daniel.springdi.services.*;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
+@EnableConfigurationProperties(SfgConstructorConfig.class)
 @ImportResource("classpath:springdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(SfgConfiguration sfgConfiguration) {
+    FakeDataSource fakeDataSource(SfgConstructorConfig sfgConstructorConfig) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(sfgConfiguration.getUsername());
-        fakeDataSource.setPassword(sfgConfiguration.getPassword());
-        fakeDataSource.setJdbcurcl(sfgConfiguration.getJdbcurl());
+        fakeDataSource.setUsername(sfgConstructorConfig.getUsername());
+        fakeDataSource.setPassword(sfgConstructorConfig.getPassword());
+        fakeDataSource.setJdbcurcl(sfgConstructorConfig.getJdbcurl());
         return fakeDataSource;
     }
 

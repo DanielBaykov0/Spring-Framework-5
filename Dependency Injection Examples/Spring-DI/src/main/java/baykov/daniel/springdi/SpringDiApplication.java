@@ -1,6 +1,7 @@
 package baykov.daniel.springdi;
 
 import baykov.daniel.springdi.config.SfgConfiguration;
+import baykov.daniel.springdi.config.SfgConstructorConfig;
 import baykov.daniel.springdi.controllers.*;
 import baykov.daniel.springdi.datasource.FakeDataSource;
 import baykov.daniel.springdi.services.PrototypeBean;
@@ -62,5 +63,11 @@ public class SpringDiApplication {
 		System.out.println(sfgConfiguration.getUsername());
 		System.out.println(sfgConfiguration.getPassword());
 		System.out.println(sfgConfiguration.getJdbcurl());
+
+		System.out.println("---------------- Constructor Binding");
+		SfgConstructorConfig sfgConstructorConfig = context.getBean(SfgConstructorConfig.class);
+		System.out.println(sfgConstructorConfig.getUsername());
+		System.out.println(sfgConstructorConfig.getPassword());
+		System.out.println(sfgConstructorConfig.getJdbcurl());
 	}
 }
