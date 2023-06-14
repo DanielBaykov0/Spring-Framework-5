@@ -1,6 +1,7 @@
 package baykov.daniel.springdi;
 
 import baykov.daniel.springdi.controllers.*;
+import baykov.daniel.springdi.datasource.FakeDataSource;
 import baykov.daniel.springdi.services.PrototypeBean;
 import baykov.daniel.springdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -49,7 +50,10 @@ public class SpringDiApplication {
 		PrototypeBean prototypeBean2 = context.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
 
-
+		FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurcl());
 
 	}
 
