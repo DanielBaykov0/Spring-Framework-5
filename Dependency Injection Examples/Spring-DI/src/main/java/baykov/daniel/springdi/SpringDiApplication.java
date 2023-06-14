@@ -56,5 +56,4 @@ public class SpringDiApplication {
 		System.out.println(fakeDataSource.getJdbcurcl());
 
 	}
-
 }
