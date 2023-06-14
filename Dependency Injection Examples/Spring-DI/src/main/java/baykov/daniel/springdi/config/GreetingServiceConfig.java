@@ -6,7 +6,6 @@ import baykov.daniel.springdi.datasource.FakeDataSource;
 import baykov.daniel.springdi.repositories.EnglishGreetingRepository;
 import baykov.daniel.springdi.repositories.EnglishGreetingRepositoryImpl;
 import baykov.daniel.springdi.services.*;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @ImportResource("classpath:springdi-config.xml")
@@ -14,13 +13,11 @@ import org.springframework.context.annotation.*;
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${daniel.username}") String username,
-                                  @Value("${daniel.password}") String password,
-                                  @Value("${daniel.jdbcurl}") String jdbcurl) {
+    FakeDataSource fakeDataSource(SfgConfiguration sfgConfiguration) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setJdbcurcl(jdbcurl);
+        fakeDataSource.setUsername(sfgConfiguration.getUsername());
+        fakeDataSource.setPassword(sfgConfiguration.getPassword());
+        fakeDataSource.setJdbcurcl(sfgConfiguration.getJdbcurl());
         return fakeDataSource;
     }
 

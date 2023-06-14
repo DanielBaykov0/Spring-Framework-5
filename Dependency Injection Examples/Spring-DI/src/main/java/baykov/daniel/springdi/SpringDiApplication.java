@@ -1,5 +1,6 @@
 package baykov.daniel.springdi;
 
+import baykov.daniel.springdi.config.SfgConfiguration;
 import baykov.daniel.springdi.controllers.*;
 import baykov.daniel.springdi.datasource.FakeDataSource;
 import baykov.daniel.springdi.services.PrototypeBean;
@@ -50,10 +51,16 @@ public class SpringDiApplication {
 		PrototypeBean prototypeBean2 = context.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
 
+		System.out.println("--------------- Fake Data Source");
 		FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurcl());
 
+		System.out.println("---------------- Config Props Bean");
+		SfgConfiguration sfgConfiguration = context.getBean(SfgConfiguration.class);
+		System.out.println(sfgConfiguration.getUsername());
+		System.out.println(sfgConfiguration.getPassword());
+		System.out.println(sfgConfiguration.getJdbcurl());
 	}
 }
