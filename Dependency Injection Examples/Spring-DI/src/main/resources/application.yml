@@ -1,6 +1,9 @@
 spring:
   profiles:
-    active: dog, EN, qa
+    active:
+    - dog
+    - EN
+    - prod
   output:
     ansi:
       enabled: ALWAYS
@@ -8,3 +11,11 @@ daniel:
   username: YmlUserName
   password: YmlPassword
   jdbcurl: YmlURL
+
+---
+spring:
+  profile: prod
+daniel:
+  username: YmlProdUserName
+  password: YmlProdPassword
+  jdbcurl: YmlProdURL
