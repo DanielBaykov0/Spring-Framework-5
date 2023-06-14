@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dog, EN
+  output:
+    ansi:
+      enabled: ALWAYS
+daniel:
+  username: YmlUserName
+  password: YmlPassword
+  jdbcurl: YmlURL
